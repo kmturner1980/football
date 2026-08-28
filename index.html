@@ -16,7 +16,7 @@
     .download { display:inline-block; margin-top:18px; padding:10px 15px; border-radius:8px; background:var(--orange); color:#fff; font-weight:700; text-decoration:none; }
     section { padding:24px 26px 3px; }
     h2 { margin:0 0 11px; color:var(--blue); font-size:1.35rem; }
-    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:10px; }
+    .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--line); border-radius:10px; }
     table { width:100%; min-width:740px; border-collapse:collapse; }
     th { padding:11px 12px; background:var(--blue); color:#fff; text-align:left; font-size:.83rem; }
     td { padding:10px 12px; border-top:1px solid var(--line); font-size:.9rem; }
@@ -25,7 +25,19 @@
     tbody tr.ranked td:nth-child(4), tbody tr.ranked td:nth-child(5) { font-weight:700; }
     footer { display:flex; align-items:center; justify-content:center; gap:14px; padding:28px; color:var(--orange); font-weight:800; font-size:1.3rem; }
     footer img { width:72px; height:auto; }
-    @media (max-width:600px) { main { width:100%; margin:0; border-radius:0; } section { padding-inline:14px; } }
+    @media (max-width:600px) {
+      main { width:100%; margin:0; border-radius:0; }
+      section { padding-inline:14px; }
+      .table-wrap { overflow:visible; border:0; }
+      table, tbody, tr, td { display:block; width:100%; min-width:0; }
+      thead { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+      tbody { display:grid; gap:12px; }
+      tbody tr, tbody tr:nth-child(even), tbody tr.ranked { border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:none; background:var(--paper); }
+      tbody tr.ranked { border-left:4px solid var(--orange); }
+      td { display:grid; grid-template-columns:minmax(88px,34%) 1fr; gap:10px; padding:9px 10px; border-top:1px solid var(--line); font-size:.9rem; }
+      td:first-child { border-top:0; }
+      td::before { content:attr(data-label); color:var(--blue); font-size:.74rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+    }
   </style>
 </head>
 <body>
@@ -64,5 +76,13 @@
     </section>
     <footer><span>Go Broncos!</span><img src="assets/boise_state_b.svg" alt="Boise State B logo"></footer>
   </main>
+  <script>
+    document.querySelectorAll('table').forEach((table) => {
+      const labels = [...table.querySelectorAll('thead th')].map((header) => header.textContent.trim());
+      table.querySelectorAll('tbody tr').forEach((row) => {
+        [...row.cells].forEach((cell, index) => cell.dataset.label = labels[index] || 'Detail');
+      });
+    });
+  </script>
 </body>
 </html>
