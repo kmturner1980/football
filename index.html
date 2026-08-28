@@ -34,9 +34,22 @@
       tbody { display:grid; gap:12px; }
       tbody tr, tbody tr:nth-child(even), tbody tr.ranked { border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:none; background:var(--paper); }
       tbody tr.ranked { border-left:4px solid var(--orange); }
-      td { display:grid; grid-template-columns:minmax(88px,34%) 1fr; gap:10px; padding:9px 10px; border-top:1px solid var(--line); font-size:.9rem; }
-      td:first-child { border-top:0; }
-      td::before { content:attr(data-label); color:var(--blue); font-size:.74rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+      tbody tr > td:not(.mobile-card) { display:none; }
+      td.mobile-card { display:block; padding:0; border:0; }
+      .mobile-card details { width:100%; }
+      .mobile-card summary { display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center; min-height:58px; padding:12px; cursor:pointer; list-style:none; }
+      .mobile-card summary::-webkit-details-marker { display:none; }
+      .mobile-matchup { color:var(--ink); font-weight:800; line-height:1.25; }
+      .mobile-outlet { color:var(--blue); font-weight:800; font-size:.85rem; white-space:nowrap; }
+      .mobile-card summary::after { content:"⌄"; grid-column:2; color:var(--orange); font-size:1.15rem; line-height:1; }
+      .mobile-card summary > .mobile-outlet { grid-column:2; grid-row:1; padding-right:16px; }
+      .mobile-card details[open] summary { border-bottom:1px solid var(--line); }
+      .mobile-card details[open] summary::after { content:"⌃"; }
+      .mobile-details { padding:2px 12px 10px; }
+      .mobile-details div { display:grid; grid-template-columns:minmax(88px,34%) 1fr; gap:10px; padding:8px 0; border-top:1px solid var(--line); }
+      .mobile-details div:first-child { border-top:0; }
+      .mobile-details dt { color:var(--blue); font-size:.74rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+      .mobile-details dd { margin:0; font-size:.9rem; }
     }
   </style>
 </head>
@@ -80,7 +93,36 @@
     document.querySelectorAll('table').forEach((table) => {
       const labels = [...table.querySelectorAll('thead th')].map((header) => header.textContent.trim());
       table.querySelectorAll('tbody tr').forEach((row) => {
-        [...row.cells].forEach((cell, index) => cell.dataset.label = labels[index] || 'Detail');
+        const cells = [...row.cells];
+        cells.forEach((cell, index) => cell.dataset.label = labels[index] || 'Detail');
+        const matchupIndex = labels.findIndex((label) => /matchup/i.test(label));
+        const outletIndex = labels.findIndex((label) => /outlet|channel|platform/i.test(label));
+        const cardCell = document.createElement('td');
+        cardCell.className = 'mobile-card';
+        cardCell.colSpan = cells.length;
+        const details = document.createElement('details');
+        const summary = document.createElement('summary');
+        const matchup = document.createElement('span');
+        matchup.className = 'mobile-matchup';
+        matchup.textContent = cells[matchupIndex]?.textContent.trim() || 'Game details';
+        const outlet = document.createElement('span');
+        outlet.className = 'mobile-outlet';
+        outlet.textContent = cells[outletIndex]?.textContent.trim() || '';
+        summary.append(matchup, outlet);
+        const detailList = document.createElement('dl');
+        detailList.className = 'mobile-details';
+        cells.forEach((cell, index) => {
+          const item = document.createElement('div');
+          const term = document.createElement('dt');
+          term.textContent = labels[index] || 'Detail';
+          const description = document.createElement('dd');
+          description.innerHTML = cell.innerHTML;
+          item.append(term, description);
+          detailList.append(item);
+        });
+        details.append(summary, detailList);
+        cardCell.append(details);
+        row.append(cardCell);
       });
     });
   </script>
