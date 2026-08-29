@@ -16,14 +16,14 @@
     .download { display:inline-block; margin-top:18px; padding:10px 15px; border-radius:8px; background:var(--orange); color:#fff; font-weight:700; text-decoration:none; }
     section { padding:24px 26px 3px; }
     h2 { margin:0 0 11px; color:var(--blue); font-size:1.35rem; }
-    .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--line); border-radius:10px; }
+    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:10px; }
     table { width:100%; min-width:740px; border-collapse:collapse; }
     th { padding:11px 12px; background:var(--blue); color:#fff; text-align:left; font-size:.83rem; }
     td { padding:10px 12px; border-top:1px solid var(--line); font-size:.9rem; }
     td.mobile-card { display:none; }
     tbody tr:nth-child(even) { background:var(--soft); }
     tbody tr.ranked { background:var(--ranked); box-shadow:inset 4px 0 0 var(--orange); }
-    tbody tr.ranked td:nth-child(4), tbody tr.ranked td:nth-child(5) { font-weight:700; }
+    tbody tr.ranked td:nth-child(4), tbody tr.ranked td:nth-child(6) { font-weight:700; }
     footer { display:flex; align-items:center; justify-content:center; gap:14px; padding:28px; color:var(--orange); font-weight:800; font-size:1.3rem; }
     footer img { width:72px; height:auto; }
     @media (max-width:600px) {
@@ -64,28 +64,28 @@
     <section>
       <h2>College Football</h2>
       <div class="table-wrap"><table>
-        <thead><tr><th>Date</th><th>Time (MT)</th><th>Primary outlet</th><th>Matchup</th><th>Top 25</th></tr></thead>
-        <tbody><tr><td>Sat, Aug 29</td><td>10:00 AM</td><td>ESPN</td><td>TCU vs. North Carolina</td><td>-</td></tr>
-<tr class="ranked"><td>Sat, Aug 29</td><td>1:00 PM</td><td>NBC</td><td>San Jose State at No. 14 USC</td><td>No. 14 USC</td></tr>
-<tr><td>Sat, Aug 29</td><td>1:30 PM</td><td>ESPN</td><td>NC State at Virginia</td><td>-</td></tr>
-<tr><td>Sat, Aug 29</td><td>3:30 PM</td><td>CBSSN</td><td>Jacksonville State at North Dakota State</td><td>-</td></tr>
-<tr><td>Sat, Aug 29</td><td>5:00 PM</td><td>ACC Network</td><td>Hawai&#x27;i at Stanford</td><td>-</td></tr>
-<tr><td>Sat, Aug 29</td><td>5:00 PM</td><td>CW</td><td>New Mexico State at Florida State</td><td>-</td></tr>
-<tr><td>Sat, Aug 29</td><td>8:00 PM</td><td>FOX</td><td>Memphis at UNLV</td><td>-</td></tr></tbody>
+        <thead><tr><th>Date</th><th>Time (MT)</th><th>Primary outlet</th><th>Matchup</th><th>Spread</th><th>Top 25</th></tr></thead>
+        <tbody><tr><td>Sat, Aug 29</td><td>10:00 AM</td><td>ESPN</td><td>TCU vs. North Carolina</td><td>TCU -8.5</td><td>-</td></tr>
+<tr class="ranked"><td>Sat, Aug 29</td><td>1:00 PM</td><td>NBC</td><td>San Jose State at No. 14 USC</td><td>USC -38.5</td><td>No. 14 USC</td></tr>
+<tr><td>Sat, Aug 29</td><td>1:30 PM</td><td>ESPN</td><td>NC State at Virginia</td><td>Virginia -3.5</td><td>-</td></tr>
+<tr><td>Sat, Aug 29</td><td>3:30 PM</td><td>CBSSN</td><td>Jacksonville State at North Dakota State</td><td>NDSU -6.5</td><td>-</td></tr>
+<tr><td>Sat, Aug 29</td><td>5:00 PM</td><td>ACC Network</td><td>Hawai&#x27;i at Stanford</td><td>Stanford -4.5</td><td>-</td></tr>
+<tr><td>Sat, Aug 29</td><td>5:00 PM</td><td>CW</td><td>New Mexico State at Florida State</td><td>Florida State -31</td><td>-</td></tr>
+<tr><td>Sat, Aug 29</td><td>8:00 PM</td><td>FOX</td><td>Memphis at UNLV</td><td>UNLV -4.5</td><td>-</td></tr></tbody>
       </table></div>
     </section>
     <section>
       <h2>National NFL Games</h2>
       <div class="table-wrap"><table>
-        <thead><tr><th>Date</th><th>Time (MT)</th><th>Primary outlet</th><th>Matchup</th><th>Window</th></tr></thead>
-        <tbody><tr><td>Thu, Aug 27</td><td>5:00 PM</td><td>NFL Network</td><td>Pittsburgh Steelers at Buffalo Bills</td><td>Preseason</td></tr>
-<tr><td>Thu, Aug 27</td><td>6:00 PM</td><td>Prime Video</td><td>New England Patriots at Cleveland Browns</td><td>Preseason TNF</td></tr>
-<tr><td>Thu, Aug 27</td><td>8:00 PM</td><td>NFL Network</td><td>Los Angeles Rams at Los Angeles Chargers</td><td>Preseason</td></tr>
-<tr><td>Fri, Aug 28</td><td>4:00 PM</td><td>NFL Network</td><td>Washington Commanders at Baltimore Ravens</td><td>Preseason</td></tr>
-<tr><td>Fri, Aug 28</td><td>6:00 PM</td><td>CBS</td><td>Cincinnati Bengals at Philadelphia Eagles</td><td>National preseason</td></tr>
-<tr><td>Fri, Aug 28</td><td>7:00 PM</td><td>NFL Network</td><td>Minnesota Vikings at Denver Broncos</td><td>Preseason</td></tr>
-<tr><td>Sat, Aug 29</td><td>11:00 AM</td><td>NFL Network</td><td>Detroit Lions at Indianapolis Colts</td><td>Preseason</td></tr>
-<tr><td>Sat, Aug 29</td><td>4:00 PM</td><td>NFL Network</td><td>Chicago Bears at Tennessee Titans</td><td>Preseason</td></tr></tbody>
+        <thead><tr><th>Date</th><th>Time (MT)</th><th>Primary outlet</th><th>Matchup</th><th>Spread</th><th>Window</th></tr></thead>
+        <tbody><tr><td>Thu, Aug 27</td><td>5:00 PM</td><td>NFL Network</td><td>Pittsburgh Steelers at Buffalo Bills</td><td>Bills -3</td><td>Preseason</td></tr>
+<tr><td>Thu, Aug 27</td><td>6:00 PM</td><td>Prime Video</td><td>New England Patriots at Cleveland Browns</td><td>Patriots -2.5</td><td>Preseason TNF</td></tr>
+<tr><td>Thu, Aug 27</td><td>8:00 PM</td><td>NFL Network</td><td>Los Angeles Rams at Los Angeles Chargers</td><td>Chargers -3.5</td><td>Preseason</td></tr>
+<tr><td>Fri, Aug 28</td><td>4:00 PM</td><td>NFL Network</td><td>Washington Commanders at Baltimore Ravens</td><td>Ravens -3.5</td><td>Preseason</td></tr>
+<tr><td>Fri, Aug 28</td><td>6:00 PM</td><td>CBS</td><td>Cincinnati Bengals at Philadelphia Eagles</td><td>Eagles -2.5</td><td>National preseason</td></tr>
+<tr><td>Fri, Aug 28</td><td>7:00 PM</td><td>NFL Network</td><td>Minnesota Vikings at Denver Broncos</td><td>Broncos -3.5</td><td>Preseason</td></tr>
+<tr><td>Sat, Aug 29</td><td>11:00 AM</td><td>NFL Network</td><td>Detroit Lions at Indianapolis Colts</td><td>Colts -3.5</td><td>Preseason</td></tr>
+<tr><td>Sat, Aug 29</td><td>4:00 PM</td><td>NFL Network</td><td>Chicago Bears at Tennessee Titans</td><td>Titans -2.5</td><td>Preseason</td></tr></tbody>
       </table></div>
     </section>
     <footer><span>Go Broncos!</span><img src="assets/boise_state_b.svg" alt="Boise State B logo"></footer>
@@ -95,7 +95,6 @@
       const labels = [...table.querySelectorAll('thead th')].map((header) => header.textContent.trim());
       table.querySelectorAll('tbody tr').forEach((row) => {
         const cells = [...row.cells];
-        cells.forEach((cell, index) => cell.dataset.label = labels[index] || 'Detail');
         const matchupIndex = labels.findIndex((label) => /matchup/i.test(label));
         const outletIndex = labels.findIndex((label) => /outlet|channel|platform/i.test(label));
         const cardCell = document.createElement('td');
