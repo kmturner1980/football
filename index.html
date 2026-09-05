@@ -59,10 +59,13 @@ tbody tr.notre-dame{box-shadow:inset 0 3px #00843d,inset 0 -3px #00843d,inset 3p
  tbody tr.notre-dame td.mobile-card details{border:4px solid #00843d}
 }
 
-/* Collapsed mobile cards show kickoff time and primary outlet together. */
+/* Collapsed mobile cards align matchup, kickoff time, and outlet as consistent columns. */
 @media(max-width:600px){
- td.mobile-card summary>strong{display:flex;align-items:center;justify-content:flex-end;gap:.28rem;white-space:nowrap;flex:0 0 auto}
+ td.mobile-card summary{display:grid;grid-template-columns:minmax(0,1fr) 10.6rem;column-gap:.6rem;align-items:center}
  td.mobile-card summary>span:first-child{min-width:0}
+ td.mobile-card summary>strong{display:grid;grid-template-columns:4.65rem .65rem 5.3rem;align-items:center;white-space:normal}
+ td.mobile-card summary>strong time{text-align:right;white-space:nowrap}
+ td.mobile-card summary>strong span[aria-hidden="true"]{text-align:center}
 }
 </style></head><body><main><header><h1>College Football + NFL TV Schedule</h1><p>September 1-7, 2026 · All kickoff times Mountain</p><a class="download" href="weekly-football-tv-schedule-2026-09-01-to-09-07.pdf" download>Download PDF</a><p style="margin-top:12px;font-size:.8rem">Updated September 2, 2026</p></header><section><h2>College Football</h2><div class="table-wrap"><table><thead><tr><th>Date</th><th>Time (MT)</th><th>Primary outlet</th><th>Matchup</th><th>Spread</th></tr></thead><tbody><tr class=""><td>Thu, Sep 3</td><td>4:00 PM</td><td>BTN</td><td class="matchup">UMass at Rutgers</td><td>Rutgers -29.5</td><td class="mobile-card"><h3 class="mobile-date-heading">Thursday 9/3</h3><details><summary><span>UMass at Rutgers</span><strong><time>4:00 PM</time><span aria-hidden="true"> · </span>BTN</strong></summary><div class="detail-grid"><span>Date</span><b>Thu, Sep 3</b><span>Time (MT)</span><b>4:00 PM</b><span>Primary outlet</span><b>BTN</b><span>Matchup</span><b>UMass at Rutgers</b><span>Spread</span><b>Rutgers -29.5</b></div></details></td></tr>
 <tr class=""><td>Thu, Sep 3</td><td>5:00 PM</td><td>ACC Network</td><td class="matchup">Akron at Wake Forest</td><td>Wake Forest -24.5</td><td class="mobile-card"><details><summary><span>Akron at Wake Forest</span><strong><time>5:00 PM</time><span aria-hidden="true"> · </span>ACC Network</strong></summary><div class="detail-grid"><span>Date</span><b>Thu, Sep 3</b><span>Time (MT)</span><b>5:00 PM</b><span>Primary outlet</span><b>ACC Network</b><span>Matchup</span><b>Akron at Wake Forest</b><span>Spread</span><b>Wake Forest -24.5</b></div></details></td></tr>
